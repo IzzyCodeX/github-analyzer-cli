@@ -31,3 +31,13 @@ function getMostStarred(repos) {
     }
     return mostStarred;
 }
+
+function getMostForked (repos){
+    let mostForked = repos[0];
+    for(let i = 1; i < repos.length; i++){
+        if (repos[i].forks_count > mostForked.forks_count){
+            mostForked = repos[i];
+        }
+    }
+    return mostForked
+}
