@@ -18,3 +18,12 @@ async function main() {
     console.log(`Total Repos: ${repos.length}`);
 }
 main();
+function getMostStarred(repos) {
+    let mostStarred = repos[0];
+    for(let i = 1; i < repos.length; i++){
+        if (repos[i].stargazers_count > mostStarred.stargazers_count){
+            mostStarred = repos[i]
+        }
+    }
+    return mostStarred;
+}
