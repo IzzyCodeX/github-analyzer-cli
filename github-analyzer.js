@@ -16,9 +16,11 @@ console.log(username)
 async function main() {
     const repos = await fetchUserRepos(username);
     const mostStarred = getMostStarred(repos)
+    const mostForked = getMostForked(repos)
 
     console.log(`Total Repos: ${repos.length}`);
     console.log(`Most Starred: ${mostStarred.name} (${mostStarred.stargazers_count} stars)`)
+    console.log(`Most Forked: ${mostForked.name} (${mostForked.forks_count} forks)`)
 }
 main();
 
