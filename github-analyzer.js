@@ -15,9 +15,13 @@ console.log(username)
 
 async function main() {
     const repos = await fetchUserRepos(username);
+    const mostStarred = getMostStarred(repos)
+
     console.log(`Total Repos: ${repos.length}`);
+    console.log(`Most Starred: ${mostStarred.name} (${mostStarred.stargazers_count} stars)`)
 }
 main();
+
 function getMostStarred(repos) {
     let mostStarred = repos[0];
     for(let i = 1; i < repos.length; i++){
