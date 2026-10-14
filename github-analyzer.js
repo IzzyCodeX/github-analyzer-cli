@@ -12,3 +12,9 @@ if (!username) {
     process.exit(1);
 }
 console.log(username)
+
+async function main() {
+    const repos = await fetchUserRepos(username);
+    console.log(repos);
+}
+main();
