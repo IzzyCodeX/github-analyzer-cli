@@ -15,6 +15,6 @@ console.log(username)
 
 async function main() {
     const repos = await fetchUserRepos(username);
-    console.log(repos);
+    console.log(`Total Repos: ${repos.length}`);
 }
 main();
