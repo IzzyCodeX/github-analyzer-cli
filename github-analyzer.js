@@ -19,13 +19,15 @@ async function main() {
     const mostForked = getMostForked(repos);
     const counts = getLanguageBreakdown(repos);
 
+    console.log(`\n=== Github Analyzer: ${username} ===\n`)
     console.log(`Total Repos: ${repos.length}`);
     console.log(`Most Starred: ${mostStarred.name} (${mostStarred.stargazers_count} stars)`)
     console.log(`Most Forked: ${mostForked.name} (${mostForked.forks_count} forks)`)
-    console.log("Languages:");
+    console.log(`\nLanguages:`);
     for (const language in counts) {
-        console.log(`${language}: ${counts[language]} repos`)
+        console.log(`- ${language}: ${counts[language]} repos`)
     }
+    console.log("\n============================")
 }
 main();
 
