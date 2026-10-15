@@ -17,11 +17,15 @@ async function main() {
     const repos = await fetchUserRepos(username);
     const mostStarred = getMostStarred(repos);
     const mostForked = getMostForked(repos);
-
+    const counts = getLanguageBreakdown(repos);
 
     console.log(`Total Repos: ${repos.length}`);
     console.log(`Most Starred: ${mostStarred.name} (${mostStarred.stargazers_count} stars)`)
     console.log(`Most Forked: ${mostForked.name} (${mostForked.forks_count} forks)`)
+    console.log("Languages:");
+    for (const language in counts) {
+        console.log(`${language}: ${counts[language]} repos`)
+    }
 }
 main();
 
@@ -45,9 +49,9 @@ function getMostForked (repos){
     return mostForked
 }
 
-function getLanguageBreakdown (repos){
+function getLanguageBreakdown(repos){
     let counts = {};
-    for(let i = 0; i < repos.length; i++){
+    for (let i = 0; i < repos.length; i++){
         const language = repos[i].language;
 
         if(!language){
@@ -56,10 +60,9 @@ function getLanguageBreakdown (repos){
 
         if(counts[language]){
             counts[language]++;
-        } else{
+        } else {
             counts[language] = 1;
         }
     }
-
     return counts;
 }
